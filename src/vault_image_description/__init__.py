@@ -1,0 +1,1 @@
+"""Vault Image Description plugin"""
