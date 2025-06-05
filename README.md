@@ -18,10 +18,11 @@ specifically on enriching images with descriptive text.
 ## 🧰 Features
 
 - 🖼️ Generates alt text for images in your vault
-- 🤖 Uses a pluggable AI service for descriptions
+- 🤖 Uses Ollama to generate descriptions with local models
 - 📑 Stores results alongside the original image reference
-- ⚙️ Built with TypeScript and a VaultOS-friendly layout
+- ⚙️ Written in Python and designed for a VaultOS-friendly layout
 - 💬 GitHub Actions and community links for collaboration
+- 🔄 Several generation modes (Pinterest Pin, Stable Diffusion prompt, ekphrasis, brief, detailed, text extraction, Midjourney prompt, technical art style, academic analysis)
 
 ---
 
@@ -37,23 +38,42 @@ cd vault-image-description
 ### 🛠 Local Setup
 
 ```bash
-npm install
-npm run build
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-After building, copy the contents of `/dist` into your Obsidian vault’s `.obsidian/plugins/` folder.
+Run the `vault_image_description` plugin from your vault directory:
+
+```bash
+python -m vault_image_description.plugin <path-to-image>
+```
 
 ---
 
 ## 🧱 Folder Structure
 
 ```plaintext
-src/           → TypeScript plugin source
-dist/          → Compiled output used by Obsidian
+src/           → Python package containing the plugin
+dist/          → Compiled output or scripts for Obsidian (optional)
 ops/           → Plugin orchestration logic
 config/        → Static metadata and module configs
 .github/       → GitHub Actions, PR/issue templates
 ```
+
+## 🎨 Description Modes
+
+The plugin can generate image descriptions in multiple styles:
+
+- **pinterest_pin** – title, catchy caption, and hashtags in the PtiCalin voice.
+- **stable_diffusion_prompt** – a prompt ready for Stable Diffusion.
+- **ekphrasis** – poetic description inspired by the image.
+- **brief** – a short overview.
+- **detailed** – a thorough description.
+- **extract_text** – OCR text found inside the image.
+- **midjourney_prompt** – prompt for Midjourney.
+- **technical_artstyle** – technical art style analysis.
+- **analysis** – academic review of the image.
 
 ---
 
