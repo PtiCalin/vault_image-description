@@ -105,4 +105,4 @@ If this plugin helps you work better, consider sponsoring here:
 
 ---
 
-Have fun building, and spend less time structuring
+Have fun building, and spend less time structuring!
