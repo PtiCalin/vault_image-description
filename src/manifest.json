@@ -1,0 +1,11 @@
+{
+  "id": "vault-image-description",
+  "name": "Vault Image Description",
+  "version": "0.1.0",
+  "minAppVersion": "0.15.0",
+  "description": "Generates descriptions for images using Ollama and shows results in a side panel.",
+  "author": "PtiCalin",
+  "authorUrl": "https://github.com/PtiCalin",
+  "main": "main.js",
+  "styles": "styles.css"
+}

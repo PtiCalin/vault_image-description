@@ -1,0 +1,10 @@
+
+/* Vault Image Description Plugin Styles */
+h2 {
+  font-size: 1.4em;
+  color: var(--text-accent);
+}
+button {
+  margin-top: 10px;
+  padding: 5px 10px;
+}
