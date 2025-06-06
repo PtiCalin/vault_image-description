@@ -49,6 +49,19 @@ Run the `vault_image_description` plugin from your vault directory:
 python -m vault_image_description.plugin <path-to-image>
 ```
 
+### 📦 Building the Obsidian Plugin
+
+The UI portion of the plugin lives in `src/main.ts` and needs to be compiled to
+JavaScript before loading it in Obsidian.
+
+```bash
+npm install               # install TypeScript and build tools
+npm run tsc               # compiles src/main.ts -> main.js in the repo root
+```
+
+After compiling, copy `src/manifest.json` and `src/styles.css` to the repository
+root alongside the generated `main.js` so Obsidian can detect the plugin files.
+
 ---
 
 ## 🧱 Folder Structure
