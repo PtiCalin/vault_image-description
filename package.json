@@ -1,0 +1,10 @@
+{
+  "name": "vault-image-description",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "tsc src/main.ts --outDir . --target ES6 --module commonjs --skipLibCheck --noEmitOnError false && cp src/manifest.json ./manifest.json && cp src/styles.css ./styles.css"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}

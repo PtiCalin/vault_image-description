@@ -49,6 +49,20 @@ Run the `vault_image_description` plugin from your vault directory:
 python -m vault_image_description.plugin <path-to-image>
 ```
 
+### 📦 Build the Obsidian Plugin
+
+The TypeScript source code for the Obsidian plugin lives in the `/src` folder.
+Install Node dependencies and compile `src/main.ts` to `main.js` using the
+provided npm scripts:
+
+```bash
+npm install
+npm run build
+```
+
+The `build` script outputs `main.js` at the project root and copies the plugin
+manifest and styles so they can be loaded by Obsidian.
+
 ---
 
 ## 🧱 Folder Structure
