@@ -1,0 +1,16 @@
+{
+  "name": "vault-image-description",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "rollup -c",
+    "tsc": "tsc",
+    "dev": "rollup -c -w"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "rollup": "^3.28.1",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "rollup-plugin-typescript2": "^0.35.0"
+  }
+}
