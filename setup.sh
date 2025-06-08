@@ -18,11 +18,10 @@ fi
 source .venv/bin/activate
 
 if [ "$OFFLINE" -eq 1 ]; then
-  echo "Offline mode enabled. Skipping pip install and npm install."
+  echo "Offline mode enabled. Skipping pip install, npm install, and TypeScript compilation."
   echo "Enable internet access or run without --offline when you're online to install dependencies."
 else
   pip install -r requirements.txt
   npm install
+  npm run tsc
 fi
-
-npm run tsc
