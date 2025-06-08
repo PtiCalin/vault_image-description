@@ -1,24 +1,60 @@
 # =======================================
 #  Vault Image Description Modes
 # ---------------------------------------
-#  Enumerates the ways PtiCalin can chat
-#  about an image. Each mode selects a
-#  prompt for Ollama so your alt text has
-#  just the right style.
+#  Purpose: enumerates PtiCalin's friendly
+#           ways to describe an image.
+#           Each option chooses a prompt so
+#           your alt text matches the style.
 # =======================================
 
 from enum import Enum
 
+
 class Mode(Enum):
-    PINTEREST_PIN = "pinterest_pin"  # 📌 Trendy pin title and caption.
-    STABLE_DIFFUSION_PROMPT = "stable_diffusion_prompt"  # 🎨 Prompt fit for image generation.
-    EKPHRASIS = "ekphrasis"  # 🖋️ A poetic take on the picture.
-    BRIEF = "brief"  # ✂️ Short alt text that gets to the point.
-    DETAILED = "detailed"  # 🔍 Longer description with extra nuance.
-    EXTRACT_TEXT = "extract_text"  # 🔡 Pull out any visible text.
-    MIDJOURNEY_PROMPT = "midjourney_prompt"  # 🚀 Prompt tailored for Midjourney.
-    TECHNICAL_ARTSTYLE = "technical_artstyle"  # 📐 Notes on art techniques and style.
-    ANALYSIS = "analysis"  # 🎓 Academic commentary on the image.
+    """Ways PtiCalin can describe an image."""
+
+    def __new__(cls, value: str, doc: str):
+        obj = object.__new__(cls)
+        obj._value_ = value
+        obj.__doc__ = doc
+        return obj
+
+    PINTEREST_PIN = (
+        "pinterest_pin",
+        "📌 Title, catchy caption, and hashtags for a stylish pin.",
+    )
+    STABLE_DIFFUSION_PROMPT = (
+        "stable_diffusion_prompt",
+        "🎨 Prompt ready for image generation software.",
+    )
+    EKPHRASIS = (
+        "ekphrasis",
+        "🖋️ Poetic lines describing what the picture evokes.",
+    )
+    BRIEF = (
+        "brief",
+        "✂️ Quick alt text that gets right to the point.",
+    )
+    DETAILED = (
+        "detailed",
+        "🔍 Longer description with extra nuance.",
+    )
+    EXTRACT_TEXT = (
+        "extract_text",
+        "🔡 Pulls out any visible text from the image.",
+    )
+    MIDJOURNEY_PROMPT = (
+        "midjourney_prompt",
+        "🚀 Prompt tailored for Midjourney.",
+    )
+    TECHNICAL_ARTSTYLE = (
+        "technical_artstyle",
+        "📐 Notes on techniques and art style.",
+    )
+    ANALYSIS = (
+        "analysis",
+        "🎓 A thoughtful academic take on the image.",
+    )
 
 PROMPTS = {
     Mode.PINTEREST_PIN: (
