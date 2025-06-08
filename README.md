@@ -98,8 +98,8 @@ We welcome contributions of all kinds!
 
 Use these links to get started:
 
-- [🐛 Bug Reports](./.github/ISSUE_TEMPLATE/bug_report.md)
-- [🌟 Feature Requests](./.github/ISSUE_TEMPLATE/feature_request.md)
+- [🐛 Bug Reports](https://github.com/your-username/vault-image-description/issues/new?template=bug.yml)
+- [🌟 Feature Requests](https://github.com/your-username/vault-image-description/issues/new?template=feature-request.yml)
 - [📦 Pull Requests](./.github/PULL_REQUEST_TEMPLATE.md)
 
 Read our [CONTRIBUTING.md](CONTRIBUTING.md) for more info, or start a conversation in [💬 GitHub Discussions](https://github.com/your-username/vault-image-description/discussions).
