@@ -1,15 +1,24 @@
+# =======================================
+#  Vault Image Description Modes
+# ---------------------------------------
+#  Enumerates the ways PtiCalin can chat
+#  about an image. Each mode selects a
+#  prompt for Ollama so your alt text has
+#  just the right style.
+# =======================================
+
 from enum import Enum
 
 class Mode(Enum):
-    PINTEREST_PIN = "pinterest_pin"
-    STABLE_DIFFUSION_PROMPT = "stable_diffusion_prompt"
-    EKPHRASIS = "ekphrasis"
-    BRIEF = "brief"
-    DETAILED = "detailed"
-    EXTRACT_TEXT = "extract_text"
-    MIDJOURNEY_PROMPT = "midjourney_prompt"
-    TECHNICAL_ARTSTYLE = "technical_artstyle"
-    ANALYSIS = "analysis"
+    PINTEREST_PIN = "pinterest_pin"  # 📌 Trendy pin title and caption.
+    STABLE_DIFFUSION_PROMPT = "stable_diffusion_prompt"  # 🎨 Prompt fit for image generation.
+    EKPHRASIS = "ekphrasis"  # 🖋️ A poetic take on the picture.
+    BRIEF = "brief"  # ✂️ Short alt text that gets to the point.
+    DETAILED = "detailed"  # 🔍 Longer description with extra nuance.
+    EXTRACT_TEXT = "extract_text"  # 🔡 Pull out any visible text.
+    MIDJOURNEY_PROMPT = "midjourney_prompt"  # 🚀 Prompt tailored for Midjourney.
+    TECHNICAL_ARTSTYLE = "technical_artstyle"  # 📐 Notes on art techniques and style.
+    ANALYSIS = "analysis"  # 🎓 Academic commentary on the image.
 
 PROMPTS = {
     Mode.PINTEREST_PIN: (
