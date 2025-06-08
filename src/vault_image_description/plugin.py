@@ -1,8 +1,9 @@
 # =======================================
 #  Vault Image Description Plugin
 # ---------------------------------------
-#  Purpose: Provide a small CLI helper that calls the engine
-#           to generate alt text for images.
+#  Purpose: small CLI wrapper that calls the engine to
+#           generate alt text or OCR text for images via
+#           locally running Ollama models.
 #  Dependencies: argparse, Pillow, pytesseract, ollama
 # =======================================
 
@@ -12,22 +13,26 @@ from .engine import generate
 from .modes import Mode
 
 
-def describe_images(image_paths: Iterable[str], mode: Mode = Mode.BRIEF, model: str = "llava") -> dict:
-    """Create descriptions for a list of images.
+def describe_images(
+    image_paths: Iterable[str],
+    mode: Mode = Mode.BRIEF,
+    model: str = "llava",
+) -> dict:
+    """Generate text for each image path.
 
     Parameters
     ----------
     image_paths : Iterable[str]
-        🖼️ Paths to images that will be described.
+        🖼️ Paths to the images to describe.
     mode : Mode, optional
-        🎚️ Description style to use, by default ``Mode.BRIEF``.
+        🎚️ Style of description, defaults to ``Mode.BRIEF``.
     model : str, optional
-        🤖 Ollama model name, by default ``"llava"``.
+        🤖 Ollama model to chat with, by default ``"llava"``.
 
     Returns
     -------
     dict
-        📦 Mapping of image path to generated text.
+        📦 Mapping of ``path`` → ``description``.
     """
 
     results = {}
@@ -36,11 +41,12 @@ def describe_images(image_paths: Iterable[str], mode: Mode = Mode.BRIEF, model: 
     return results
 
 
-def main():
-    """CLI for describing images with a bit of flair.
+def main() -> None:
+    """Run the image description CLI.
 
-    Parses arguments, generates descriptions and prints them. Any failure is
-    reported with a friendly emoji before the exception is re-raised.
+    Parses arguments, generates descriptions and prints them. On failure a
+    colorful message is shown before the exception is re-raised so the calling
+    shell can still react accordingly.
     """
 
     import argparse
@@ -58,7 +64,11 @@ def main():
         try:
             desc = generate(path, mode, model=args.model)
         except Exception as exc:
-            print(f"❌ Failed to describe '{path}': {exc}", file=sys.stderr)
+            print(
+                f"💥 Oops! Couldn't describe '{path}'. {exc}\n"
+                "👉 Please verify the image path and dependencies.",
+                file=sys.stderr,
+            )
             raise
         else:
             print(f"{path}:\n{desc}\n")
