@@ -1,5 +1,5 @@
-"""Helpers for the Vault Image Description plugin.
+"""Central tools for the Vault Image Description plugin.
 
-This package glues the engine and CLI together so your images get a bit of
-that signature PtiCalin flair in their alt text.
+This package stitches the engine to the user interface so each alt text
+carries that unmistakable PtiCalin vibe.
 """
