@@ -33,14 +33,16 @@ Clone the repository and install dependencies:
 ```bash
 git clone https://github.com/your-username/vault-image-description.git
 cd vault-image-description
+./setup.sh
 ```
 
 ### 🛠 Local Setup
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+./setup.sh
+
+# Offline mode
+OFFLINE=1 ./setup.sh # or ./setup.sh --offline
 ```
 
 Run the `vault_image_description` plugin from your vault directory:
