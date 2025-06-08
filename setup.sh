@@ -4,8 +4,9 @@ set -e
 # ---------------------------------------------------------------------------
 # Setup script for the Vault Image Description project.
 #
-# This script creates a Python virtual environment, installs Python and Node
-# dependencies, and compiles the TypeScript code.
+# This script prepares a Python virtual environment, installs both Python and
+# Node dependencies, and compiles the TypeScript source. It can operate in an
+# offline mode where dependency installation is skipped.
 #
 # Dependencies:
 #   - Python 3 with the `venv` module
@@ -37,23 +38,23 @@ done
 
 # Create and activate Python virtual environment
 if [ ! -d ".venv" ]; then
-  echo "Creating a fresh virtual environment at .venv to keep things tidy..."
+  echo "Creating a fresh virtual environment at .venv to keep things tidy."
   python -m venv .venv
 else
-  echo "Using existing virtual environment at .venv. No need to recreate it." 
+  echo "Using the existing virtual environment at .venv. No need to recreate it."
 fi
 echo "Activating the virtual environment for this session..."
 source .venv/bin/activate
 
 if [ "$OFFLINE" -eq 1 ]; then
-  echo "Offline mode detected. We'll skip installing dependencies for now."
-  echo "Once you're online, run the script again without --offline to grab the dependencies."
+  echo "Offline mode detected, so we'll skip installing dependencies for now."
+  echo "Whenever you're back online, run the script again without --offline to grab the dependencies."
 else
-  echo "Installing Python dependencies. Sit tight..."
+  echo "Installing Python dependencies. This may take a moment..."
   pip install -r requirements.txt
-  echo "Installing Node packages as well..."
+  echo "Now installing Node packages..."
   npm install
 fi
 
-echo "Compiling TypeScript to JavaScript..."
+echo "Compiling TypeScript to JavaScript. Almost there..."
 npm run tsc
