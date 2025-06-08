@@ -13,15 +13,16 @@ set -e
 #
 # Example (online):
 #   ./setup.sh
-#   > Creating virtual environment...
-#   > Installing dependencies...
-#   > Building TypeScript...
+#   > Creating virtual environment at .venv...
+#   > Installing Python dependencies...
+#   > Installing Node packages...
+#   > Compiling TypeScript to JavaScript...
 #
 # Example (offline):
 #   ./setup.sh --offline
-#   > Creating virtual environment...
-#   > Offline mode enabled. Skipping dependency installation.
-#   > Building TypeScript...
+#   > Creating virtual environment at .venv...
+#   > Offline mode detected. We'll skip installing dependencies for now.
+#   > Compiling TypeScript to JavaScript...
 # ---------------------------------------------------------------------------
 
 # Determine offline mode from argument or environment variable
@@ -36,23 +37,23 @@ done
 
 # Create and activate Python virtual environment
 if [ ! -d ".venv" ]; then
-  echo "Creating virtual environment at .venv..."
+  echo "Creating a fresh virtual environment at .venv to keep things tidy..."
   python -m venv .venv
 else
-  echo "Using existing virtual environment at .venv..."
+  echo "Using existing virtual environment at .venv. No need to recreate it." 
 fi
-echo "Activating virtual environment..."
+echo "Activating the virtual environment for this session..."
 source .venv/bin/activate
 
 if [ "$OFFLINE" -eq 1 ]; then
-  echo "Offline mode enabled. Skipping dependency installation."
-  echo "Run again without --offline when you're online to fetch everything."
+  echo "Offline mode detected. We'll skip installing dependencies for now."
+  echo "Once you're online, run the script again without --offline to grab the dependencies."
 else
-  echo "Installing Python dependencies..."
+  echo "Installing Python dependencies. Sit tight..."
   pip install -r requirements.txt
-  echo "Installing Node packages..."
+  echo "Installing Node packages as well..."
   npm install
 fi
 
-echo "Compiling TypeScript..."
+echo "Compiling TypeScript to JavaScript..."
 npm run tsc
