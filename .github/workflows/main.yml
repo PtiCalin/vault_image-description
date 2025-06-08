@@ -16,8 +16,7 @@ jobs:
 
     steps:
       - name: 📦 Install dependencies
-        run: | #List dependencies here
-          echo "Installing dependencies..."
-          # Example: pip install -r requirements.txt
-          # Replace with actual commands for your project
+        env:
+          OFFLINE: 1
+        run: ./setup.sh
       
