@@ -2,15 +2,16 @@
   "name": "vault-image-description",
   "version": "1.0.0",
   "scripts": {
-    "build": "rollup -c",
-    "tsc": "tsc",
-    "dev": "rollup -c -w"
+    "dev": "node esbuild.config.mjs",
+    "build": "node esbuild.config.mjs production",
+    "version-bump": "node version-bump.mjs"
   },
   "devDependencies": {
-    "typescript": "^5.2.2",
-    "rollup": "^3.28.1",
-    "@rollup/plugin-node-resolve": "^15.1.0",
-    "@rollup/plugin-commonjs": "^25.0.4",
-    "rollup-plugin-typescript2": "^0.35.0"
+    "@types/node": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "esbuild": "^0.17.11",
+    "eslint": "^8.40.0",
+    "typescript": "^5.2.2"
   }
 }
