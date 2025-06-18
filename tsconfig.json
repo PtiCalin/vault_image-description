@@ -20,5 +20,5 @@
   },
   "include": [
     "**/*.ts"
-  ]
+, "../vault_image-description_temp/main.vaultos-plugin-template.ts"  ]
 }
